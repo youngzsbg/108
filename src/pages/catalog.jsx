@@ -7,10 +7,15 @@ import dataService from "../services/dataService";
 function Catalog() {
 
     const [catalog, setCatalog] = useState([]);
+    const [categories, setCategories] = useState([]);
+
 
     function loadData() {
         let productList = dataService.getProducts();
         setCatalog(productList);
+
+        let categoriesList = dataService.getCategories();
+        setCategories(categoriesList);
 
     }
 
@@ -27,16 +32,13 @@ function Catalog() {
             <div>
                 <h1>This is where Catalog go</h1>
             </div>
+            <div className="filters">
+                {categories.map(cat => <button>{cat}</button>)}
+            </div>
+            
             <div>
-                <Product data={catalog[0]}></Product>
-                <Product data={catalog[1]}></Product>
-                <Product data={catalog[2]}></Product>
-                <Product data={catalog[3]}></Product>
-                <Product data={catalog[4]}></Product>
-                <Product data={catalog[5]}></Product>
-                <Product data={catalog[6]}></Product>
-                <Product data={catalog[7]}></Product>
-                <Product data={catalog[8]}></Product>
+               
+               {catalog.map(prod => <Product data={prod}></Product>)}
             </div>
 
         </div>

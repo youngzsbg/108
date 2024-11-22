@@ -1,0 +1,37 @@
+.admin{
+    padding: 30px;
+    background-color: darkslategray;
+
+}
+.admin .parent{
+    display: flex;
+}
+
+.admin .parent .products{
+    flex: 3;
+}
+
+.admin .parent .coupons{
+    flex: 2;
+}
+
+.admin .parent .form{
+    border: 1px solid #5d5d5d;
+    border-radius: 4px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: rgba(255, 255, 255, 0.63);
+    margin: 0 20px;
+    text-align: left;
+}
+
+.admin .parent .form h3{
+    color: rgb(16, 5, 5);
+    text-align: center;
+    padding: 12px;
+}
+
+.admin .parent .form .btn-container{
+    text-align: center;
+}
+
