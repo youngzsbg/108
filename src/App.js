@@ -7,20 +7,31 @@ import About from "./pages/about.jsx";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
 import Admin from "./pages/admin.jsx";
+import Home from "./pages/home.jsx";
+import Cart from "./pages/cart.jsx";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 
 
 
 function App(){
   return(
-    
-    <div className= "App">
-      <Navbar></Navbar>
-      <Catalog></Catalog>
-      <Admin></Admin>
-      <About></About>
-      <Footer></Footer>      
-     </div>
+    <BrowserRouter>
+      <div className= "App">
+        <Navbar/>
+        
+        <Routes>
+          <Route path="/" element={<Home/>}> </Route>
+          <Route path="/home" element={<Home/>}> </Route>
+          <Route path="/catalog" element={<Catalog/>}> </Route>
+          <Route path="/admin" element={<Admin/>}> </Route>
+          <Route path="/about" element={<About/>}></Route>
+          <Route path="/cart" element={<Cart/>}></Route>
+        </Routes>
+                     
+        <Footer/>      
+      </div>
+    </BrowserRouter>
   );
 }
 

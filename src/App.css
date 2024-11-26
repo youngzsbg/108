@@ -38,3 +38,7 @@ body{
     transform: rotate(360deg);
   }
 }
+
+.page{
+  min-height: calc(100vh - 137px);
+}
