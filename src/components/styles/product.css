@@ -5,10 +5,16 @@
     background-color: white;
     display: inline-block;
     width: 250px;
-    height: 400px;
+    height: 380px;
     vertical-align: top;
+    position: relative;
 }
-
+.product .id{
+    position: absolute;
+    left: 10px;
+    top: 5px;
+    color: aqua;
+}
 .product img{
     width: 248px;
     height: 248px;

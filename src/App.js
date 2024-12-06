@@ -10,28 +10,32 @@ import Admin from "./pages/admin.jsx";
 import Home from "./pages/home.jsx";
 import Cart from "./pages/cart.jsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
+import GlobalProvider from "./components/context/globalProvider.jsx";
+import ShoppingList from "./pages/shoppinglist.jsx";
 
 
 
 function App(){
   return(
-    <BrowserRouter>
-      <div className= "App">
-        <Navbar/>
-        
-        <Routes>
-          <Route path="/" element={<Home/>}> </Route>
-          <Route path="/home" element={<Home/>}> </Route>
-          <Route path="/catalog" element={<Catalog/>}> </Route>
-          <Route path="/admin" element={<Admin/>}> </Route>
-          <Route path="/about" element={<About/>}></Route>
-          <Route path="/cart" element={<Cart/>}></Route>
-        </Routes>
-                     
-        <Footer/>      
-      </div>
-    </BrowserRouter>
+    <GlobalProvider>
+      <BrowserRouter>
+        <div className= "App">
+          <Navbar/>
+          
+          <Routes>
+            <Route path="/" element={<Home/>}> </Route>
+            <Route path="/home" element={<Home/>}> </Route>
+            <Route path="/catalog" element={<Catalog/>}> </Route>
+            <Route path="/admin" element={<Admin/>}> </Route>
+            <Route path="/about" element={<About/>}> </Route>
+            <Route path="/cart" element={<Cart/>}> </Route>
+            <Route path="/list" element={<ShoppingList/>}> </Route>
+          </Routes>
+                      
+          <Footer/>      
+        </div>
+      </BrowserRouter>
+    </GlobalProvider>
   );
 }
 

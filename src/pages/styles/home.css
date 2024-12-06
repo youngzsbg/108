@@ -1,20 +1,20 @@
 
 .home{
    padding: 20px;
-    background-color: azure;
-    background-color: rgb(208, 245, 245);
+    background-color: darkslategray;
+    
 }
 
 .home h1 {
     text-align: center;
-    color: darkcyan;
+    color: lightgray;
    
 }
 
 .home img{
    
     width: 100%;
-    height: 300px;
+    height: 550px;
     
        
    
@@ -22,4 +22,11 @@
 .main-img2{
     width: 100%;
     height: 200px;
+}
+
+.home h2{
+    color: lightgray;
+}
+.home .button{
+    margin-top: 10px;
 }

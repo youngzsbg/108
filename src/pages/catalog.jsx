@@ -8,6 +8,7 @@ function Catalog() {
 
     const [catalog, setCatalog] = useState([]);
     const [categories, setCategories] = useState([]);
+    const [selectedCategory, setSelectedCategory] = useState("")
 
 
     function loadData() {
@@ -25,6 +26,14 @@ function Catalog() {
 
     }, [])
 
+    function onCategorySelected(category){
+        setSelectedCategory(category);
+    }
+
+    function clearFilter(){
+        setSelectedCategory("")
+    }
+
     if (!catalog.length) return "Loading...";
 
     return (
@@ -33,12 +42,15 @@ function Catalog() {
                 <h1>This is where Catalog go</h1>
             </div>
             <div className="filters">
-                {categories.map(cat => <button>{cat}</button>)}
+                <button onClick={clearFilter} className="btn btn-sm btn-outline-success">All</button>
+                {categories.map(cat => <button onClick={() => onCategorySelected(cat)} key={cat}className="btn btn-sm btn-outline-success">{cat}</button>)}
             </div>
             
             <div>
                
-               {catalog.map(prod => <Product data={prod}></Product>)}
+               {catalog
+                    .filter(prod => !selectedCategory || prod.category === selectedCategory)
+                    .map(prod => <Product data={prod} key= {prod._id}></Product>)}
             </div>
 
         </div>
