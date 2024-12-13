@@ -1,4 +1,4 @@
-
+import axios from "axios";
 
 var catalog = [
     {
@@ -71,11 +71,13 @@ var catalog = [
 var categories = ["Plant","Vegetable","Herb"]
 
 class DataService {
-    getProducts() {
+    async getProducts() {
         // call server to retrieve products
+        let response = await axios.get("http://127.0.0.1:5000/api/products");
 
+        return response.data;
         //hardcode values
-        return catalog;
+        //return catalog;
     }
 
     getCategories(){
@@ -84,6 +86,22 @@ class DataService {
         //hardcode values
         return categories;
     }
+    async saveProduct(product){
+        let response = await axios.post("http://127.0.0.1:5000/api/products", product);
+        return response.data;
+
+}
+
+     async saveCoupon(coupon){
+        let response = await axios.post("http://127.0.0.1:5000/api/coupons", coupon);
+        return response.data;
+    }
+
+    async getCoupons(){
+        let response = await axios.get("http://127.0.0.1:5000/api/coupons");
+        return response.data;
+    }
+    
 }
 
 export default new DataService;
